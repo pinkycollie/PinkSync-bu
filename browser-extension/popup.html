@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 350px;
+      min-height: 400px;
+      margin: 0;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #FF1CCB 0%, #A954FF 50%, #00FFE0 100%);
+      color: white;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .logo {
+      width: 32px;
+      height: 32px;
+      background: white;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+    
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0;
+    }
+    
+    .subtitle {
+      font-size: 12px;
+      opacity: 0.8;
+      margin: 4px 0 0 0;
+    }
+    
+    .controls {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .control-group {
+      margin-bottom: 16px;
+    }
+    
+    .control-group:last-child {
+      margin-bottom: 0;
+    }
+    
+    .control-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    
+    .control-description {
+      font-size: 11px;
+      opacity: 0.7;
+      margin-bottom: 8px;
+    }
+    
+    .toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .switch {
+      position: relative;
+      width: 44px;
+      height: 24px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    
+    .switch.active {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    
+    .switch-handle {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 20px;
+      height: 20px;
+      background: white;
+      border-radius: 50%;
+      transition: transform 0.2s;
+    }
+    
+    .switch.active .switch-handle {
+      transform: translateX(20px);
+    }
+    
+    .slider {
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+    }
+    
+    .slider::-webkit-slider-thumb {
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      background: white;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    
+    .status {
+      text-align: center;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      font-size: 12px;
+    }
+    
+    .status.connected {
+      background: rgba(0, 255, 224, 0.2);
+    }
+    
+    .status.disconnected {
+      background: rgba(255, 0, 0, 0.2);
+    }
+    
+    .actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    
+    .btn {
+      flex: 1;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .btn-primary {
+      background: white;
+      color: #FF1CCB;
+    }
+    
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+    
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">✨</div>
+    <h1 class="title">PinkSync</h1>
+    <p class="subtitle">Accessibility Overlay Active</p>
+  </div>
+
+  <div class="controls">
+    <div class="control-group">
+      <div class="toggle">
+        <div>
+          <label class="control-label">High Contrast</label>
+          <div class="control-description">Increase visual contrast</div>
+        </div>
+        <div class="switch" id="highContrast">
+          <div class="switch-handle"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Font Size: <span id="fontSizeValue">16px</span></label>
+      <input type="range" class="slider" id="fontSize" min="12" max="24" value="16">
+    </div>
+
+    <div class="control-group">
+      <div class="toggle">
+        <div>
+          <label class="control-label">Reduced Motion</label>
+          <div class="control-description">Minimize animations</div>
+        </div>
+        <div class="switch" id="reducedMotion">
+          <div class="switch-handle"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="toggle">
+        <div>
+          <label class="control-label">Focus Indicators</label>
+          <div class="control-description">Enhanced keyboard navigation</div>
+        </div>
+        <div class="switch" id="focusIndicators">
+          <div class="switch-handle"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="toggle">
+        <div>
+          <label class="control-label">Sign Language Overlay</label>
+          <div class="control-description">Show sign language translations</div>
+        </div>
+        <div class="switch" id="signLanguageOverlay">
+          <div class="switch-handle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="status" id="status">
+    <div id="statusText">Checking connection...</div>
+  </div>
+
+  <div class="actions">
+    <button class="btn btn-secondary" id="resetBtn">Reset</button>
+    <button class="btn btn-primary" id="dashboardBtn">Dashboard</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

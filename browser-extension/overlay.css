@@ -1,0 +1,222 @@
+/* PinkSync Browser Extension Overlay Styles */
+
+#pinksync-overlay {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 300px;
+  background: linear-gradient(135deg, #ff1ccb 0%, #a954ff 50%, #00ffe0 100%);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(255, 28, 203, 0.3);
+  z-index: 2147483647;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+.pinksync-overlay-content {
+  padding: 16px;
+}
+
+.pinksync-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.pinksync-logo {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.pinksync-title {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.pinksync-close {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+
+.pinksync-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.pinksync-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.pinksync-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.2s;
+  text-align: left;
+}
+
+.pinksync-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.pinksync-status {
+  font-size: 11px;
+  text-align: center;
+  opacity: 0.8;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+}
+
+/* Sign Language Widget */
+#pinksync-sign-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 280px;
+  background: rgba(18, 18, 18, 0.95);
+  border: 2px solid #ff1ccb;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(255, 28, 203, 0.3);
+  z-index: 2147483646;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+.pinksync-widget-content {
+  padding: 16px;
+}
+
+.pinksync-widget-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.pinksync-widget-close {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.pinksync-widget-close:hover {
+  opacity: 1;
+}
+
+.pinksync-widget-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #ff1ccb, #a954ff);
+  border: none;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: transform 0.2s;
+}
+
+.pinksync-widget-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Accessibility Enhancements */
+.pinksync-high-contrast {
+  filter: contrast(150%) !important;
+}
+
+.pinksync-high-contrast * {
+  border-color: currentColor !important;
+}
+
+.pinksync-reduced-motion * {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+.pinksync-enhanced-focus *:focus {
+  outline: 3px solid #ff1ccb !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 6px rgba(255, 28, 203, 0.3) !important;
+}
+
+/* Font size override */
+html[style*="--pinksync-font-size"] * {
+  font-size: var(--pinksync-font-size) !important;
+}
+
+/* Skip link */
+.pinksync-skip-link:focus {
+  top: 6px !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #pinksync-overlay {
+    width: 280px;
+    right: 10px;
+    top: 10px;
+  }
+
+  #pinksync-sign-widget {
+    width: 260px;
+    right: 10px;
+    bottom: 10px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  #pinksync-overlay,
+  #pinksync-sign-widget {
+    border: 2px solid white;
+    background: black;
+  }
+
+  .pinksync-btn {
+    border: 1px solid white;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  #pinksync-overlay *,
+  #pinksync-sign-widget * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

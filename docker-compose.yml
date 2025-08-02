@@ -1,0 +1,86 @@
+version: '3.8'
+
+services:
+  # Frontend (Next.js)
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - NODE_ENV=development
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+
+  # Backend (FastAPI)
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://pinksync:password@postgres:5432/pinksync
+      - MONGODB_URL=mongodb://mongo:27017/pinksync
+      - REDIS_URL=redis://redis:6379
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - postgres
+      - mongo
+      - redis
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=pinksync
+      - POSTGRES_USER=pinksync
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  # MongoDB
+  mongo:
+    image: mongo:6
+    environment:
+      - MONGO_INITDB_DATABASE=pinksync
+    volumes:
+      - mongo_data:/data/db
+    ports:
+      - "27017:27017"
+
+  # Redis
+  redis:
+    image: redis:7-alpine
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+
+  # Nginx (Production)
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./ssl:/etc/nginx/ssl
+    depends_on:
+      - frontend
+      - backend
+    profiles:
+      - production
+
+volumes:
+  postgres_data:
+  mongo_data:
+  redis_data:

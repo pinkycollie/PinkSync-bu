@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* PinkSync Brand Colors */
+    --pinksync-neon: #ff1ccb;
+    --electric-teal: #00ffe0;
+    --orbit-purple: #a954ff;
+    --charcoal-black: #121212;
+    --galaxy-white: #f7f8fa;
+
+    /* Accessibility-first color system */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 322 100% 55%; /* PinkSync Neon */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 322 100% 55%;
+    --radius: 0.5rem;
+
+    /* Custom PinkSync variables */
+    --pinksync-glow: 0 0 20px rgba(255, 28, 203, 0.5);
+    --electric-glow: 0 0 20px rgba(0, 255, 224, 0.5);
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 322 100% 55%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 322 100% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* PinkSync Custom Styles */
+@layer components {
+  .pinksync-glow {
+    box-shadow: var(--pinksync-glow);
+  }
+
+  .electric-glow {
+    box-shadow: var(--electric-glow);
+  }
+
+  .neon-text {
+    color: var(--pinksync-neon);
+    text-shadow: 0 0 10px rgba(255, 28, 203, 0.8);
+  }
+
+  .cosmic-gradient {
+    background: linear-gradient(135deg, var(--pinksync-neon) 0%, var(--orbit-purple) 50%, var(--electric-teal) 100%);
+  }
+
+  .accessibility-focus {
+    @apply focus:outline-none focus:ring-4 focus:ring-primary/50 focus:ring-offset-2;
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    :root {
+      --primary: 322 100% 45%;
+      --background: 0 0% 100%;
+      --foreground: 0 0% 0%;
+    }
+
+    .dark {
+      --primary: 322 100% 65%;
+      --background: 0 0% 0%;
+      --foreground: 0 0% 100%;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Large text support */
+  @media (min-resolution: 2dppx) {
+    body {
+      font-size: 18px;
+    }
+  }
+}
+
+/* Accessibility enhancements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus indicators for keyboard navigation */
+.focus-visible {
+  @apply accessibility-focus;
+}
+
+/* High contrast borders */
+@media (prefers-contrast: high) {
+  .border {
+    border-width: 2px;
+  }
+}

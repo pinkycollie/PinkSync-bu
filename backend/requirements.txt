@@ -7,12 +7,12 @@ motor==3.3.2
 redis==5.0.1
 python-jose[cryptography]==3.3.0
 passlib[bcrypt]==1.7.4
-python-multipart==0.0.6
+python-multipart==0.0.18
 opencv-python==4.8.1.78
 mediapipe==0.10.8
 tensorflow==2.15.0
 numpy==1.24.3
-pillow==10.1.0
+pillow==10.3.0
 websockets==12.0
 python-socketio==5.10.0
 aiofiles==23.2.1

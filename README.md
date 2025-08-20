@@ -1,30 +1,83 @@
-# PinkSync .360Magicians.com
+🎶 PinkSync Music Visualizer
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+Feel the Beat. See the Sound. Experience Music Differently.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/mbtq-dev/pinksync_magicina)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/5K2QMkl8z1K)
+The PinkSync Music Visualizer is a Deaf-First accessibility tool that transforms music and sound into vibrations, visuals, and emotional color mapping. Built for the MBTQ ecosystem, this visualizer bridges rhythm and emotion across sight, touch, and motion — making sound universally accessible.
 
-## Overview
+✨ Features
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+Upload or Stream Music → Drop an MP3 or connect to live audio.
 
-## Deployment
+Dynamic Visuals → Real-time particle animations powered by Three.js & Web Audio API.
 
-Your project is live at:
+Accessibility Modes:
 
-**[https://vercel.com/mbtq-dev/pinksync_magicina](https://vercel.com/mbtq-dev/pinksync_magicina)**
+🔵 Color Emotion Mapping (bass = pulse, treble = spark).
 
-## Build your app
+🟣 Haptic Mode (phone vibration / wearable feedback).
 
-Continue building your app on:
+🟢 Sign Overlay Mode (syncs with signing avatars).
 
-**[https://v0.dev/chat/projects/5K2QMkl8z1K](https://v0.dev/chat/projects/5K2QMkl8z1K)**
+Browser-based MVP → No install required, just open and play.
 
-## How It Works
+PinkSync API Integration → Custom color palettes, vibration intensity settings.
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+🛠️ Tech Stack
+
+Frontend: Next.js, React, TailwindCSS
+
+Visual Engine: Three.js / WebGL, p5.js
+
+Audio Processing: Web Audio API, Tone.js
+
+Accessibility Layer: PinkSync API
+
+🚀 Getting Started
+1. Clone the Repo
+git clone https://github.com/pinksync/music-visualizer.git
+cd music-visualizer
+
+2. Install Dependencies
+npm install
+
+3. Run Dev Server
+npm run dev
+
+
+Visit http://localhost:3000 in your browser.
+
+🎨 Roadmap
+
+ Audio Upload & Visualizer MVP
+
+ Live Streaming Integration (YouTube / Spotify / Twitch)
+
+ Haptic Feedback Device API (Apple Watch, wristbands, VR haptics)
+
+ Multi-user Shared Experience (sync visuals in real-time across rooms)
+
+ VR Mode (PinkSync x VR4Deaf immersive concerts)
+
+📦 Deployment
+
+Built for Vercel → One-click deploy to production.
+
+vercel deploy
+
+🤝 Community & Partnerships
+
+PinkSync Music Visualizer is part of the MBTQ.dev Deaf-First ecosystem, supporting accessibility-driven entrepreneurship and entertainment.
+
+Strategic integration partners:
+
+🎧 VR4Deaf (wearables + immersive store)
+
+🎥 Deaf creators & streamers (inclusive content)
+
+🎤 Vocational Rehab & Workforce Programs (event accessibility)
+
+📜 License
+
+MIT — Open-source under the MBTQ.dev initiative.
+
+⚡ PinkSync Music Visualizer — Powered by MBTQ.dev. Designed for the Deaf-first future.
